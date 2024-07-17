@@ -1,0 +1,21 @@
+<p>two-way works!</p>
+
+
+<p>
+    <input [(ngModel)]="name" placeholder="Enter something!!!" />
+</p>
+<div>
+    Hello {{name}}
+</div>
+
+<div>
+    <input type="checkbox" [(ngModel)]="ischecked"/>
+    checkbox value is :{{ischecked}}
+</div>
+
+<div>
+    <input type="radio" [(ngModel)]="selectedOption" [value]="'Option 1'"/> Option 1
+    <input type="radio" [(ngModel)]="selectedOption" [value]="'Option 2'"/> Option 2
+
+    Selected radio button value : {{selectedOption}}
+</div>

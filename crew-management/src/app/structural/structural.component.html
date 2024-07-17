@@ -1,0 +1,62 @@
+<p>structural works!</p>
+
+
+<!-- Old syntax < angular17 -->
+<div *ngIf="a>b">
+    A is grater !!!
+</div>
+
+<div *ngIf="b>a">
+    B is grater !!!
+</div>
+
+<!-- Angular 17 - gives more control than earlier varsion-->
+ @if(a>b){
+    {{a}} is grater than {{b}}
+ }@else{
+    {{b}} is grater than {{a}}
+ }
+
+ <!-- Angular 16 -->
+  <div *ngFor="let item of itemsArr">
+    {{item}}
+  </div>
+
+  <!-- angular17 Old version directives are re-render multiple times.
+   so performance issue better use new one-->
+   <h3>For Directive Using New Angular 17</h3>
+   @for(item of itemsArr; track item){
+    <div>{{item}}</div>
+   }
+
+   <h3>Switch Directive</h3>
+   @switch(userRole){
+    @case("admin"){
+        <p>User is Admin</p>
+    }
+    @case("manager"){
+        <p>Iser is manager</p>
+    }
+    @default{
+        <p>User is Default</p>
+    }
+   }
+
+   <!-- Attribute Directives -->
+<h3>Attribute Directives -> click on button class CSS property will change</h3>
+
+<div [ngClass]="{'active' : isActive , 'inActive' : !isActive}">
+    This line will show/hide when button is clicked
+</div>
+
+<button (click)="toggleCheck()">Toggle Button</button>
+
+<div [ngStyle]="{'height':'100px', 'background-color':bgcolor,'font-size.px':fontSize}">
+    Update the style property using Attribute directives.
+</div>
+
+<button (click)="updateStyle()">update CSS style</button>
+
+<h3>ngModule - data Bind also</h3>
+<input [(ngModel)]="name" placeholder="Enter text">
+<p>Hello {{name}}</p>

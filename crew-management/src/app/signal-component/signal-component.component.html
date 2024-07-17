@@ -1,0 +1,24 @@
+<p>signal-component works!</p>
+
+
+<div>
+    Counter value is {{counter()}}
+</div>
+
+<div>
+    Username value is {{userName() }}
+</div>
+
+<div>
+    Users array value is {{ users() }}
+</div>
+
+<div>
+    Videos object value is :{{videos().title}} <br/>
+    {{videos().Desc}}
+</div>
+
+<button (click)="setCounter()">setCounter</button>
+<button (click)="updateCounter()">updateCounter</button>
+<button (click)="setVideo()">setVideo</button>
+

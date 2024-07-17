@@ -1,0 +1,15 @@
+<p>component loaded from lazy loading module -> edit-user works!</p>
+
+
+<p>
+    {{adminName}}
+</p>
+
+<a [href]="urlGoogle">Link for property Binding</a>
+
+<!-- Event Binding -->
+<div [class]="className">This is div</div>
+<p>    
+<button (click)="bindButtonClick()">Click Event Binding</button>
+<input type="text" (keyup)="captureValue($event)"/>
+</p>
