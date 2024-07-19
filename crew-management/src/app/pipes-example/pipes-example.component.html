@@ -1,0 +1,54 @@
+<p>pipes-example works!</p>
+
+
+<h2>Date pipes</h2>
+<p>{{today}}</p>
+<p>{{today | date:'shortDate'}}</p>
+<p>{{today | date:'ddmmyyyy'}}</p>
+
+<h2>upper case and lower case pipe</h2>
+<p>{{text | uppercase}}</p>
+<p>{{text | lowercase}}</p>
+
+<h2>Currency Pipes</h2>
+<p>{{amount |currency}}</p>
+<p>{{amount |currency :'USD'}}</p>
+<p>{{amount |currency : 'INR'}}</p>
+<p>{{amount |currency : 'EUR'}}</p>
+
+<h2>Decimal pipes</h2>
+<p>{{percentValue}}</p>
+<p>{{percentValue | number}}</p>
+<p>{{percentValue | number : '1.1-2'}}</p>
+
+<h2>Percentage pipes</h2>
+<p>{{percentValue | percent}}</p>
+<p>{{percentValue | percent : '1.1-2'}}</p>
+
+<h2>Json pipes</h2>
+<p>{{jsonVal | json}}</p>
+
+<h2>Slice Pipe</h2>
+<p>{{myArr | slice:1:3}}</p>
+
+<h2>Key value pipes</h2>
+<!-- <ul>
+    <li *ngFor="let item in myObject | keyvalue">
+        {{item.key}} : {{item.value}} 
+
+        @for(let item in myObject; track item) |keyvalue{
+            {{item.key}} : {{item.value}} 
+        }
+    </li>
+</ul>  -->
+
+
+<div *ngFor="let item of myObject | keyvalue">
+    {{item.key}} : {{item.value}} 
+  </div>
+
+<h2>END</h2>
+
+
+
+

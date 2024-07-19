@@ -3,6 +3,7 @@ import { AdminModule } from './admin/admin.module';
 import { TwoWayComponent } from './two-way/two-way.component';
 import { SignalComponentComponent } from './signal-component/signal-component.component';
 import { StructuralComponent } from './structural/structural.component';
+import { PipesExampleComponent } from './pipes-example/pipes-example.component';
 
 export const routes: Routes = [
 {
@@ -25,5 +26,9 @@ export const routes: Routes = [
 {
     path:'structural',
     component:StructuralComponent
+},
+{
+    path:'pipes',
+    component:PipesExampleComponent
 }
 ];
