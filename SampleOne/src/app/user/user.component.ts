@@ -1,8 +1,23 @@
-import { Component, Input, Output,EventEmitter, output,input} from '@angular/core';
+import { Component, Input, Output, EventEmitter, output, input } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
-
+import { User } from './user.model';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+
+//This type script feature -> define own object
+// type User = {
+//   id:string;
+//   avatar: string;
+//   name: string;
+// }
+
+//commonly use in object
+// interface User {
+//   id:string;
+//   avatar: string;
+//   name: string;
+// }
+
 
 @Component({
   selector: 'app-user',
@@ -17,7 +32,7 @@ export class UserComponent {
   // Code -1 Option -1 Zone.js angular 2 onwards
     selectedUser=DUMMY_USERS[randomIndex];
  
-   //pass this computed function to template 
+   //pass this computed getter function to template 
    get imagePath(){
      return 'assets/users/' + this.selectedUser.avatar;
    }
@@ -42,8 +57,8 @@ export class UserComponent {
   //     -> not Interpolation  way 1 way data binding
   //   5.Changed computed in html file make function 
 
-  selectedUser = signal(DUMMY_USERS[randomIndex]);
-  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
+  selectedUser = signal(DUMMY_USERS[randomIndex]); //step-2
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar); //step-5
 
   //pass this getter function to template - this compute way doesn't work with signal , so use above line
   //  get imagePath() {
@@ -53,30 +68,35 @@ export class UserComponent {
   onSelectedUser() {
     console.log("Clicked !!");
     const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.selectedUser.set(DUMMY_USERS[randomIndex]);
+    this.selectedUser.set(DUMMY_USERS[randomIndex]); //step-3
   } */
 
   // Code -3  =====================================
   // Data Bind Using signal input ->Option -1 Zone.js angular 2 onwards
-  // using decorator -> old way data bind -> not signal way this is new way
+  // using decorator -> old way data bind 
   // @Input({ required: true }) id!: string;
   // @Input({ required: true }) avatar!: string;
   // @Input({ required: true }) name!: string;
 
+  //--------------------------------
   // #Now convert to "user object" type-> Simply
-  @Input({required:true}) user!:{
-    id:string;
-    avatar: string;
-    name: string;
-  };
-
+  // -> Option 1
+  // @Input({required:true}) user!:{
+  //   id:string;
+  //   avatar: string;
+  //   name: string;
+  // };
+  // -> Option 2
+  @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected!: boolean;
+  //--------------------------------
 
   @Output() selectVarEvent = new EventEmitter<string>(); //use for output when button select
   //Output using output() function == is internally calls EventEmitter and works in same way
   // Why to use when decorator @Output exist - if you don't want to @ dcotorator for input sinal look below code
   // selectVarEvent = output<string>();
 
-  get imagePath(){
+  get imagePath() {
     return 'assets/users/' + this.user.avatar;
   }
 

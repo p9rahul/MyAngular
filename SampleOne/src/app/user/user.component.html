@@ -1,5 +1,5 @@
 <div>
-    <button (click)="onSelectUser()">
+    <button [class.active]="selected" (click)="onSelectUser()">
         <!-- Keeping this dynamic attribute value is not correct so create getter and setter -->
         <!-- <img [src]="'assets/users/' + selectedUser.avatar" -->
         <!-- <img [src]="imagePath()" [alt]="selectedUser().name" />
